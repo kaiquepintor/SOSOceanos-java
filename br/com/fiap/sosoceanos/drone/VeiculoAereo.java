@@ -1,4 +1,4 @@
-import java.util.List;
+package br.com.fiap.sosoceanos.drone;
 
 public abstract class VeiculoAereo {
 
@@ -13,10 +13,6 @@ public abstract class VeiculoAereo {
         this.modelo = modelo;
         this.bateria = bateria;
     }
-
-    //
-    public abstract List<String> captarImagem();
-    public abstract String obterCoordenadas();
 
     @Override
     public String toString() {

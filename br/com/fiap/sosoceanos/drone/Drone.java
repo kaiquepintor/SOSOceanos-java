@@ -1,3 +1,5 @@
+package br.com.fiap.sosoceanos.drone;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -8,10 +10,9 @@ public class Drone extends VeiculoAereo {
         super(id, modelo, bateria);
     }
 
-    @Override
+    // Simulação de uma captura de imagem
     public List<String> captarImagem() {
 
-        // Simulação de uma captura de imagem
         List<String> pixelsImagem = new ArrayList<>();
         pixelsImagem.add("agua");
         pixelsImagem.add("agua");
@@ -23,10 +24,9 @@ public class Drone extends VeiculoAereo {
         return pixelsImagem;
     }
 
-    @Override
+    // Simulação de uma obtenção de coordenadas
     public String obterCoordenadas() {
 
-        // Simulação de uma obtenção de coordenadas
         return "37.7749,-122.4194";
     }
 

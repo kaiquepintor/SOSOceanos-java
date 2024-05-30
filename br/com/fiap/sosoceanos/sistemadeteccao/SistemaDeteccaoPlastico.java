@@ -1,9 +1,12 @@
+package br.com.fiap.sosoceanos.sistemadeteccao;
+
+import br.com.fiap.sosoceanos.drone.Drone;
+
 import java.util.ArrayList;
 import java.util.List;
 
 public class SistemaDeteccaoPlastico {
 
-    // Atributos
     private List<LocalPoluido> locaisPoluidos = new ArrayList<>();
 
     // Método para detectar plastico
@@ -52,11 +55,4 @@ public class SistemaDeteccaoPlastico {
         return relatorio.toString();
     }
 
-    public void processarImagem(Drone drone) {
-        List<String> imagem = drone.captarImagem();
-        boolean plasticoDetectado = detectarPlastico(imagem);
-        if (plasticoDetectado) {
-            registrarLocalPoluido(drone.obterCoordenadas(), 1);
-        }
-    }
 }

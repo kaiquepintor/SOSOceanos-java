@@ -1,3 +1,5 @@
+package br.com.fiap.sosoceanos.sistemadeteccao;
+
 public class LocalPoluido {
 
     // Atributos

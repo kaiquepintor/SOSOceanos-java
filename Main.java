@@ -38,13 +38,13 @@ public class Main {
                     JTextField nomeField = new JTextField();
                     JTextField emailField = new JTextField();
                     JPasswordField passwordField1 = new JPasswordField();
-                    Object[] message1 = {
+                    Object[] areaCadastro = {
                             "Digite seu nome:", nomeField,
                             "Digite seu email:", emailField,
                             "Digite sua senha:", passwordField1
                     };
-                    int option1 = JOptionPane.showConfirmDialog(null, message1, "Cadastro", JOptionPane.OK_CANCEL_OPTION);
-                    if (option1 == JOptionPane.OK_OPTION) {
+                    int optionCadastro = JOptionPane.showConfirmDialog(null, areaCadastro, "Cadastro", JOptionPane.OK_CANCEL_OPTION);
+                    if (optionCadastro == JOptionPane.OK_OPTION) {
                         String nome = nomeField.getText();
                         String email = emailField.getText();
                         String senha = new String(passwordField1.getPassword());
@@ -64,12 +64,12 @@ public class Main {
                 case 2:
                     emailField = new JTextField();
                     JPasswordField passwordField2 = new JPasswordField();
-                    Object[] message2 = {
+                    Object[] areaLogin = {
                             "Digite seu email:", emailField,
                             "Digite sua senha:", passwordField2
                     };
-                    int option2 = JOptionPane.showConfirmDialog(null, message2, "Login", JOptionPane.OK_CANCEL_OPTION);
-                    if (option2 == JOptionPane.OK_OPTION) {
+                    int optionLogin = JOptionPane.showConfirmDialog(null, areaLogin, "Login", JOptionPane.OK_CANCEL_OPTION);
+                    if (optionLogin == JOptionPane.OK_OPTION) {
                         String email = emailField.getText();
                         String senha = new String(passwordField2.getPassword());
 

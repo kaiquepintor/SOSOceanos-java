@@ -4,7 +4,7 @@ import br.com.fiap.sosoceanos.usuario.SistemaUsuarios;
 import br.com.fiap.sosoceanos.usuario.Usuario;
 import br.com.fiap.sosoceanos.doacao.SistemaDoacoes;
 
-import javax.swing.JOptionPane;
+import javax.swing.*;
 import java.util.List;
 
 public class Main {
@@ -35,28 +35,52 @@ public class Main {
 
             switch (opcaoCadastro) {
                 case 1:
-                    String nome = JOptionPane.showInputDialog("Digite seu nome:");
-                    String email = JOptionPane.showInputDialog("Digite seu email:");
-                    String senha = JOptionPane.showInputDialog("Digite sua senha:");
+                    JTextField nomeField = new JTextField();
+                    JTextField emailField = new JTextField();
+                    JPasswordField passwordField1 = new JPasswordField();
+                    Object[] message1 = {
+                            "Digite seu nome:", nomeField,
+                            "Digite seu email:", emailField,
+                            "Digite sua senha:", passwordField1
+                    };
+                    int option1 = JOptionPane.showConfirmDialog(null, message1, "Cadastro", JOptionPane.OK_CANCEL_OPTION);
+                    if (option1 == JOptionPane.OK_OPTION) {
+                        String nome = nomeField.getText();
+                        String email = emailField.getText();
+                        String senha = new String(passwordField1.getPassword());
 
-                    if (sistemaUsuarios.cadastrarUsuario(nome, email, senha)) {
-                        JOptionPane.showMessageDialog(null, "Cadastrado feito com sucesso!");
-                    } else {
-                        JOptionPane.showMessageDialog(null, "Email já cadastrado!");
+                        if (nome.isEmpty() || email.isEmpty() || senha.isEmpty()) {
+                            JOptionPane.showMessageDialog(null, "Por favor, preencha todos os campos.");
+                        } else {
+                            if (sistemaUsuarios.cadastrarUsuario(nome, email, senha)) {
+                                JOptionPane.showMessageDialog(null, "Cadastro feito com sucesso!");
+                            } else {
+                                JOptionPane.showMessageDialog(null, "Email já cadastrado!");
+                            }
+                        }
                     }
                     break;
 
                 case 2:
-                    email = JOptionPane.showInputDialog("Digite seu email:");
-                    senha = JOptionPane.showInputDialog("Digite sua senha:");
+                    emailField = new JTextField();
+                    JPasswordField passwordField2 = new JPasswordField();
+                    Object[] message2 = {
+                            "Digite seu email:", emailField,
+                            "Digite sua senha:", passwordField2
+                    };
+                    int option2 = JOptionPane.showConfirmDialog(null, message2, "Login", JOptionPane.OK_CANCEL_OPTION);
+                    if (option2 == JOptionPane.OK_OPTION) {
+                        String email = emailField.getText();
+                        String senha = new String(passwordField2.getPassword());
 
-                    usuarioAtual = sistemaUsuarios.loginUsuario(email, senha);
+                        usuarioAtual = sistemaUsuarios.loginUsuario(email, senha);
 
-                    if (usuarioAtual != null) {
-                        JOptionPane.showMessageDialog(null, "Login bem-sucedido!");
-                        loggedIn = true;
-                    } else {
-                        JOptionPane.showMessageDialog(null, "Email ou senha incorretos!");
+                        if (usuarioAtual != null) {
+                            JOptionPane.showMessageDialog(null, "Login bem-sucedido!");
+                            loggedIn = true;
+                        } else {
+                            JOptionPane.showMessageDialog(null, "Email ou senha incorretos!");
+                        }
                     }
                     break;
 
@@ -112,14 +136,14 @@ public class Main {
                         switch (opcaoOng) {
                             case 1:
                                 double valor = Double.parseDouble(JOptionPane.showInputDialog("Digite quanto deseja doar:"));
-                                sistemaDoacoes.registrarDoacao("Ong 1", valor, usuarioAtual.getNome());
+                                sistemaDoacoes.registrarDoacao("CoralGuardians", valor, usuarioAtual.getNome());
                                 JOptionPane.showMessageDialog(null, "Obrigado(a), " + usuarioAtual.getNome() +
                                         ". Você doou R$" + valor + " para a CoralGuardians!");
                                 break;
 
                             case 2:
                                 valor = Double.parseDouble(JOptionPane.showInputDialog("Digite quanto deseja doar:"));
-                                sistemaDoacoes.registrarDoacao("Ong 2", valor, usuarioAtual.getNome());
+                                sistemaDoacoes.registrarDoacao("CleanWave", valor, usuarioAtual.getNome());
                                 JOptionPane.showMessageDialog(null, "Obrigado(a), " + usuarioAtual.getNome() +
                                         ". Você doou R$" + valor + " para a CleanWave!");
                                 break;

@@ -5,6 +5,7 @@ import java.util.List;
 
 public class SistemaDoacoes {
 
+    // Atributos
     private List<Doacao> doacoes;
 
     public SistemaDoacoes() {

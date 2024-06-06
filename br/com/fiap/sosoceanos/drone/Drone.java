@@ -5,9 +5,13 @@ import java.util.List;
 
 public class Drone extends VeiculoAereo {
 
+    // Atributos
+    private double bateria;
+
     // Construtores
     public Drone(String id, String modelo, double bateria) {
-        super(id, modelo, bateria);
+        super(id, modelo);
+        this.bateria = bateria;
     }
 
     // Simulação de uma captura de imagem

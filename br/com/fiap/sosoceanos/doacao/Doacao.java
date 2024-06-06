@@ -14,6 +14,8 @@ public class Doacao {
         this.usuario = usuario;
     }
 
+    public Doacao() {}
+
     @Override
     public String toString() {
         return "ONG: " + ong + ", Valor: R$ " + valor + ", Usuário: " + usuario;

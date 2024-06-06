@@ -5,18 +5,18 @@ public abstract class VeiculoAereo {
     // Atributos
     protected String id;
     protected String modelo;
-    protected double bateria;
 
     // Construtores
-    public VeiculoAereo(String id, String modelo, double bateria) {
+    public VeiculoAereo(String id, String modelo) {
         this.id = id;
         this.modelo = modelo;
-        this.bateria = bateria;
     }
+
+    public VeiculoAereo() {}
 
     @Override
     public String toString() {
-        return "id= " + id + ", modelo= " + modelo + ", bateria= " + bateria;
+        return "id= " + id + ", modelo= " + modelo;
     }
 
     // Getters e Setters
@@ -34,13 +34,5 @@ public abstract class VeiculoAereo {
 
     public void setModelo(String modelo) {
         this.modelo = modelo;
-    }
-
-    public double getBateria() {
-        return bateria;
-    }
-
-    public void setBateria(double bateria) {
-        this.bateria = bateria;
     }
 }
